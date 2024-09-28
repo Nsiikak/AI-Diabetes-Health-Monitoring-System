@@ -27,7 +27,7 @@ This innovative system is powered by:
 
 - **Backend**: [NestJS](https://nestjs.com/) - A powerful and flexible framework for scalable server-side applications ⚙️.
 - **Frontend**: [React](https://reactjs.org/) - A modern and dynamic library for building fast, interactive user interfaces 🎨.
-- **Database**: [PostgreSQL](https://www.postgresql.org/) - A robust and reliable relational database for managing secure health data 📊.
+- **Database**: [MySQL](https://www.postgresql.org/) - A robust and reliable relational database for managing secure health data 📊.
 - **AI Integration**: [Firebase](https://firebase.google.com/) - Harnessing the power of **AI** for medical chatbots and intelligent health suggestions 🔮.
 - **Machine Learning Models**: Python-based ML models trained for diabetes risk prediction and treatment optimization.
 
