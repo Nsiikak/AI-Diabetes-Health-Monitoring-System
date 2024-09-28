@@ -17,7 +17,9 @@
 
 ## 🚀 About the Project
 
-The **AI-Driven Diabetes Health Monitoring System** is on a mission to **transform global healthcare** 🌍 by using **cutting-edge AI technologies** 🤖! Our system detects, diagnoses, and optimizes treatments for **diabetes** patients. Starting locally in **Nigeria** 🇳🇬, we aim to make healthcare more **accessible**, **predictive**, and **personalized** for communities that need it the most. 💡
+### 🌟Revolutionizing Diabetes Care & Global Healthcare with Artificial Intelligence 
+
+This project harnesses cutting-edge **AI technologies** to tackle **SDG 3: Good Health and Well-being**, with a special focus on **diabetes management**. By employing **AI-powered tools** for **disease detection**, **accurate diagnosis**, and **treatment optimization**, we're driving transformative healthcare solutions. Starting our journey in **Nigeria**, we aspire to create healthcare systems that are more **predictive**, **personalized**, and **accessible**—especially for underserved communities. Together, we're revolutionizing healthcare and improving lives across the globe! 🌐💉✨
 
 ---
 
@@ -53,11 +55,11 @@ Ready to dive in? Follow these steps to set up the project and start changing th
 
 Ensure you have these tools installed:
 
-- [Node.js](https://nodejs.org/en/) (v14.x or higher) 🟢
-- [npm](https://www.npmjs.com/) 🧩
-- [PostgreSQL](https://www.postgresql.org/) (or any SQL database) 💽
-- A [Firebase](https://firebase.google.com/) account for AI-powered features 🔮
-- [Python](https://www.python.org/) with relevant ML libraries for model training and integration 🧠
+- [Node.js](https://nodejs.org/en/) (v14.x or higher) 
+- [npm](https://www.npmjs.com/)
+- [MySQL](https://www.mysql.org/)
+- A [Firebase](https://firebase.google.com/) account for AI-powered features
+- [Python](https://www.python.org/) with relevant ML libraries for model training and integration 
 
 ### 📥 Installation
 
