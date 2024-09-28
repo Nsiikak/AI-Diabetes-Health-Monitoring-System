@@ -143,7 +143,7 @@ Get the project up and running locally in just a few steps:
    npm start
    ```
 
-2. The frontend should now be running on `http://localhost:3000` 🚀.
+2. The frontend should now be running on `http://localhost:5000` 🚀.
 
 ### Machine Learning Models 🧠
 
@@ -160,7 +160,7 @@ Get the project up and running locally in just a few steps:
 
 ### Access the Application 🌐
 
-- **Frontend**: Open `http://localhost:3000` in your browser to access the user-friendly, interactive interface.
+- **Frontend**: Open `http://localhost:5000` in your browser to access the user-friendly, interactive interface.
 - **Backend API**: The API is available at `http://localhost:3000/api`.
 
 ---
