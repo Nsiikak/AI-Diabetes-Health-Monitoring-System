@@ -88,14 +88,14 @@ Ensure you have these tools installed:
 
 4. **Set Up the Database**:
 
-   - Ensure PostgreSQL (or your preferred SQL database) is installed and running 🖥️.
+   - Ensure MySQL (or your preferred SQL database) is installed and running 🖥️.
    - Create a new database for the project and update the database configuration in the `backend` folder.
 
    Example `.env` configuration:
 
    ```bash
    DB_HOST=localhost
-   DB_PORT=5432
+   DB_PORT=3306
    DB_USER=yourusername
    DB_PASSWORD=yourpassword
    DB_NAME=health_monitoring
