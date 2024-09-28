@@ -178,7 +178,7 @@ AI-Diabetes-Health-Monitoring-System/
 │   ├── src/            # Source files for frontend
 │   └── ...             # Other frontend-specific folders and files
 │
-├── ml-models/          # Python ML models for diabetes prediction 🧠
+├── ML/          # Python ML models for diabetes prediction 🧠
 │   ├── datasets/       # Datasets used for model training
 │   ├── models/         # Trained model files
 │   └── src/            # ML code for training and prediction
