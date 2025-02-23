@@ -168,23 +168,69 @@ Get the project up and running locally in just a few steps:
 ## 🗂️ Project Structure
 
 ```
-AI-Diabetes-Health-Monitoring-System/
+diabetes-monitoring-system/
 │
-├── backend/            # NestJS backend code 🏗️
-│   ├── src/            # Source files for backend
-│   └── ...             # Other backend-specific folders and files
+├── frontend/                 # React.js (User Interface)
+│   ├── public/               # Static assets
+│   ├── src/
+│   │   ├── components/       # Reusable UI components (Charts, Forms)
+│   │   ├── pages/            # Dashboard, Health Insights, Chatbot, etc.
+│   │   ├── services/         # API calls (backend integration)
+│   │   ├── hooks/            # Custom React hooks for state management
+│   │   ├── styles/           # CSS/SCSS files
+│   │   ├── App.js            # Main React app file
+│   │   ├── index.js          # Entry point
+│   ├── package.json          # Frontend dependencies
+│   ├── .env                  # Environment variables
+│   ├── README.md             # Frontend documentation
 │
-├── frontend/           # React frontend code 💻
-│   ├── src/            # Source files for frontend
-│   └── ...             # Other frontend-specific folders and files
+├── backend/                  # NestJS (API & Business Logic)
+│   ├── src/
+│   │   ├── controllers/      # Route handlers (Auth, Health Data, Chatbot)
+│   │   ├── services/         # Business logic (ML model, DB queries)
+│   │   ├── models/           # Database models (User, HealthData)
+│   │   ├── middleware/       # Authentication, Logging
+│   │   ├── main.ts           # Entry point
+│   ├── package.json          # Backend dependencies
+│   ├── .env                  # Backend environment variables
+│   ├── README.md             # Backend documentation
 │
-├── ML/          # Python ML models for diabetes prediction 🧠
-│   ├── datasets/       # Datasets used for model training
-│   ├── models/         # Trained model files
-│   └── src/            # ML code for training and prediction
+├── database/                 # PostgreSQL Schema
+│   ├── migrations/           # Database migrations
+│   ├── schema.sql            # SQL Schema for Tables
+│   ├── seed.sql              # Sample Data
 │
-├── README.md           # Project documentation 📚
-└── .gitignore          # Git ignore file
+├── machine-learning/         # AI/ML Diabetes Prediction Model
+│   ├── data/                 # Dataset (CSV, JSON)
+│   ├── notebooks/            # Jupyter Notebooks for EDA
+│   ├── models/               # Trained Neural Network Model
+│   ├── scripts/              # Training & Evaluation Scripts
+│   ├── requirements.txt      # Dependencies
+│   ├── train.py              # Training script
+│   ├── predict.py            # Prediction API
+│
+├── chatbot/                  # AI Chatbot using RAG
+│   ├── embeddings/           # Vectorized medical data (FAISS/Pinecone)
+│   ├── retriever.py          # RAG retrieval logic
+│   ├── chatbot.py            # Chatbot API
+│
+├── deployment/               # Deployment Configs
+│   ├── Dockerfile            # Containerization
+│   ├── docker-compose.yml    # Multi-service deployment
+│   ├── cloud/                # Cloud deployment scripts (AWS/GCP)
+│
+├── tests/                    # Testing
+│   ├── unit/                 # Unit tests
+│   ├── integration/          # API tests
+│   ├── ml_tests/             # Model evaluation tests
+│
+├── docs/                     # Project Documentation
+│   ├── API.md                # API Documentation
+│   ├── SYSTEM_DESIGN.md      # Architecture design
+│
+├── .gitignore                # Ignore unnecessary files
+├── README.md                 # Main project documentation
+
 ```
 
 ---
