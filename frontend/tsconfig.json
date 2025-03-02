@@ -12,9 +12,7 @@
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
-    "moduleResolution": "node",
     "allowJs": true,
-    "checkJs": false,
     "noUnusedLocals": false,
     "strictNullChecks": false
   }
