@@ -4,6 +4,8 @@
 /build
 node_modules
 dist
+venv
+
 # Logs
 logs
 *.log
