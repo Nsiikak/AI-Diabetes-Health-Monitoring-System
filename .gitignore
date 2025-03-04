@@ -70,6 +70,8 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # production
 /build
+/Backend/config/firebase-admin.json
+config/firebase-admin.json
 
 # misc
 .DS_Store
