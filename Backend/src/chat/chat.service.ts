@@ -14,15 +14,13 @@ export class ChatService {
         credential: admin.credential.cert(
           serviceAccount as admin.ServiceAccount,
         ),
-        projectId: serviceAccount.project_id, // Get project ID from the service account.
+        projectId: serviceAccount.project_id,
       });
+      console.log('Initializing Firestore');
     }
     this.db = admin.firestore();
   }
-  /**
-   * Retrieve relevant documents from Firestore.
-   * This basic example fetches up to 5 active documents.
-   */
+
   async getRelevantDocs(query: string): Promise<any[]> {
     try {
       const snapshot = await this.db
