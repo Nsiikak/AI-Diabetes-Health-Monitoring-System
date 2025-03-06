@@ -7,30 +7,44 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "sonner";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Mail, User, Lock } from "lucide-react";
 import PageTransition from "@/components/common/PageTransition";
 
-const Login = () => {
-  const { isAuthenticated, login, loading } = useAuth();
+const SignUp = () => {
+  const { isAuthenticated, register, loading } = useAuth();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+    
+    if (!acceptTerms) {
+      toast.error("Please accept the terms and conditions");
+      return;
+    }
+    
     setIsLoading(true);
     
     try {
-      const success = await login(email, password);
+      const success = await register(name, email, password);
       if (success) {
-        toast.success("Login successful!");
+        toast.success("Registration successful!");
       } else {
-        toast.error("Invalid credentials!");
+        toast.error("Registration failed. Please try again.");
       }
     } catch (error) {
-      toast.error("Login failed!");
+      console.error("Registration error:", error);
+      toast.error("Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -52,12 +66,28 @@ const Login = () => {
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold tracking-tight">DiaSense</h1>
             <p className="text-muted-foreground mt-2">
-              Sign in to your diabetes monitoring system
+              Create your diabetes monitoring account
             </p>
           </div>
           
           <div className="glass-card p-8 rounded-2xl shadow-sm">
             <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="name">Full Name</Label>
+                <div className="relative">
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="John Doe"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="pl-10"
+                    required
+                  />
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                </div>
+              </div>
+              
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <div className="relative">
@@ -75,12 +105,7 @@ const Login = () => {
               </div>
               
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a href="#" className="text-sm text-primary hover:underline">
-                    Forgot password?
-                  </a>
-                </div>
+                <Label htmlFor="password">Password</Label>
                 <div className="relative">
                   <Input
                     id="password"
@@ -108,29 +133,45 @@ const Login = () => {
                 </div>
               </div>
               
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <div className="relative">
+                  <Input
+                    id="confirmPassword"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="pl-10"
+                    required
+                  />
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                </div>
+              </div>
+              
               <div className="flex items-center space-x-2">
                 <Checkbox 
-                  id="remember" 
-                  checked={rememberMe}
+                  id="terms" 
+                  checked={acceptTerms}
                   onCheckedChange={(checked) => {
-                    setRememberMe(checked === true);
+                    setAcceptTerms(checked === true);
                   }}
                 />
-                <Label htmlFor="remember" className="text-sm">
-                  Remember me for 30 days
+                <Label htmlFor="terms" className="text-sm">
+                  I accept the <a href="#" className="text-primary hover:underline">terms and conditions</a>
                 </Label>
               </div>
               
-              <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign in"}
+              <Button type="submit" className="w-full" disabled={isLoading || !acceptTerms}>
+                {isLoading ? "Creating account..." : "Create account"}
               </Button>
             </form>
           </div>
           
           <p className="text-center text-sm text-muted-foreground mt-6">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-primary hover:underline">
-              Sign up
+            Already have an account?{" "}
+            <Link to="/login" className="text-primary hover:underline">
+              Sign in
             </Link>
           </p>
         </motion.div>
@@ -139,4 +180,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

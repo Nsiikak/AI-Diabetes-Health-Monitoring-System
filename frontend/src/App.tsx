@@ -10,6 +10,8 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/SignUp";
+import ChatBot from "./pages/ChatBot";
 
 const queryClient = new QueryClient();
 
@@ -36,10 +38,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Index />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           } />
           <Route path="/reports" element={
             <ProtectedRoute>
@@ -48,8 +51,13 @@ const App = () => (
           } />
           <Route path="/settings" element={
             <ProtectedRoute>
-              <Settings />
+               <Settings />
             </ProtectedRoute>
+          } />
+          <Route path="/chatbot" element={
+            // <ProtectedRoute>
+              <ChatBot />
+            // </ProtectedRoute>
           } />
           <Route path="*" element={<NotFound />} />
         </Routes>
