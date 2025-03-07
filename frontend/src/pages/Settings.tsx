@@ -1,4 +1,3 @@
-import React from "react";
 import PageTransition from "@/components/common/PageTransition";
 import Layout from "@/components/layout/Layout";
 import SettingsTabs from "@/components/settings/SettingsTabs";

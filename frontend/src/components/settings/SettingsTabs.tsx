@@ -1,9 +1,10 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BellIcon, TabletIcon, UserIcon } from "lucide-react";
-import ProfileTab from "./ProfileTab";
-import DevicesTab from "./DevicesTab";
-import NotificationsTab from "./NotificationsTab";
+import ProfileSettings from "./ProfileSettings";
+import DevicesSettings from "./DevicesSettings";
+import NotificationsSettings from "./NotificationsSettings";
+
 const SettingsTabs = () => {
   return (
     <Tabs defaultValue="profile" className="space-y-6">
@@ -23,17 +24,18 @@ const SettingsTabs = () => {
       </TabsList>
       
       <TabsContent value="profile">
-        <ProfileTab />
+        <ProfileSettings />
       </TabsContent>
       
       <TabsContent value="devices">
-        <DevicesTab />
+        <DevicesSettings />
       </TabsContent>
       
       <TabsContent value="notifications">
-        <NotificationsTab />
+        <NotificationsSettings />
       </TabsContent>
     </Tabs>
   );
 };
+
 export default SettingsTabs;

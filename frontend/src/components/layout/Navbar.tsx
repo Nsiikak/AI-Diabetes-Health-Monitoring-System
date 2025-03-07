@@ -9,7 +9,8 @@ import {
   MenuIcon,
   X,
   LogOut,
-  MessageCircle
+  MessageCircle,
+  TrendingUp
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/utils/auth";
@@ -25,6 +26,7 @@ const Navbar = () => {
   const navItems = [
     { to: "/", icon: <Home className="h-5 w-5" />, label: "Home" },
     { to: "/chatbot", icon: <MessageCircle className="h-5 w-5" />, label: "Chat Assistant" },
+    { to: "/predictions", icon: <TrendingUp className="h-5 w-5" />, label: "Predictions" },
     { to: "/reports", icon: <BarChart2 className="h-5 w-5" />, label: "Reports" },
     { to: "/settings", icon: <Settings className="h-5 w-5" />, label: "Settings" },
   ];

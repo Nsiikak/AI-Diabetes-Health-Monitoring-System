@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /knowledgeBase/{docId} {
+      allow read: if true; // Open read access (for testing)
+      allow write: if false; // Prevent writing
+    }
+  }
+}

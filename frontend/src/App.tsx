@@ -12,6 +12,7 @@ import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
 import ChatBot from "./pages/ChatBot";
+import Predictions from "./pages/Predictions";
 
 const queryClient = new QueryClient();
 
@@ -45,18 +46,23 @@ const App = () => (
             // </ProtectedRoute>
           } />
           <Route path="/reports" element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <Reports />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           } />
           <Route path="/settings" element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
                <Settings />
-            </ProtectedRoute>
+            // </ProtectedRoute>
           } />
           <Route path="/chatbot" element={
             // <ProtectedRoute>
               <ChatBot />
+            // </ProtectedRoute>
+          } />
+           <Route path="/predictions" element={
+            // <ProtectedRoute>
+              <Predictions />
             // </ProtectedRoute>
           } />
           <Route path="*" element={<NotFound />} />

@@ -1,13 +1,12 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
-const ProfileTab = () => {
+const ProfileSettings = () => {
   const handleSaveProfile = () => {
     toast.success("Profile settings saved!");
   };
@@ -100,4 +99,4 @@ const ProfileTab = () => {
   );
 };
 
-export default ProfileTab;
+export default ProfileSettings;

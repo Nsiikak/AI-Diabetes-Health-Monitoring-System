@@ -3,6 +3,7 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import axios from 'axios';
 import * as serviceAccount from '../../config/firebase-admin.json';
+import { collection, doc, setDoc } from 'firebase/firestore';
 
 @Injectable()
 export class ChatService {
@@ -25,8 +26,8 @@ export class ChatService {
     try {
       const snapshot = await this.db
         .collection('knowledgeBase')
-        .where('active', '==', true)
-        .limit(5)
+        // .where('active', '==', true)
+        // .limit(5)
         .get();
 
       const docs = [];

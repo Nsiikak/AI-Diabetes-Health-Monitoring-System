@@ -1,11 +1,10 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 
-const NotificationsTab = () => {
+const NotificationsSettings = () => {
   const handleSaveNotifications = () => {
     toast.success("Notification preferences saved!");
   };
@@ -115,4 +114,4 @@ const NotificationsTab = () => {
   );
 };
 
-export default NotificationsTab;
+export default NotificationsSettings;
