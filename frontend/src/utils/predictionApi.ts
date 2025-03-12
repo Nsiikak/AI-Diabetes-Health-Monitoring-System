@@ -1,18 +1,18 @@
-const API_URL = "http://localhost:3000"; // Replace with your NestJS API URL
+const API_URL = "http://localhost:8000"; // Updated to match FastAPI server port
 
 export interface PredictionData {
-  pregnancies: number;
-  glucose: number;
-  bloodPressure: number;
-  skinThickness: number;
-  insulin: number;
-  bmi: number;
-  diabetesPedigreeFunction: number;
-  age: number;
+  Pregnancies: number;
+  Glucose: number;
+  BloodPressure: number;
+  SkinThickness: number;
+  Insulin: number;
+  BMI: number;
+  DiabetesPedigreeFunction: number;
+  Age: number;
 }
 
 export interface PredictionResponse {
-  outcome: boolean;
+  prediction: string;
   probability: number;
 }
 
@@ -31,7 +31,7 @@ export const predictionApi = {
       headers["Authorization"] = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${API_URL}/predictions/diabetes`, {
+    const response = await fetch(`${API_URL}/predict`, {
       method: "POST",
       headers,
       body: JSON.stringify(data),

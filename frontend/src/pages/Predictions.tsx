@@ -9,6 +9,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Separator } from "@/components/ui/separator";
 import { AlertCircle, Calculator, Database, ChartBar, Percent } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { predictionApi, PredictionData, PredictionResponse } from "@/utils/predictionApi";
 
 interface PredictionForm {
   pregnancies: number;
@@ -22,7 +23,7 @@ interface PredictionForm {
 }
 
 interface PredictionResult {
-  outcome: boolean;
+  message: string;
   probability: number;
 }
 
@@ -54,36 +55,30 @@ const Predictions = () => {
     setLoading(true);
 
     try {
-      // Replace with actual API call to your NestJS backend
-      const response = await fetch("http://localhost:3000/predictions/diabetes", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Include auth token if required
-          // "Authorization": `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify(formValues),
-      });
+      // Map form values to match the FastAPI expected schema
+      const predictionData: PredictionData = {
+        Pregnancies: formValues.pregnancies,
+        Glucose: formValues.glucose,
+        BloodPressure: formValues.bloodPressure,
+        SkinThickness: formValues.skinThickness,
+        Insulin: formValues.insulin,
+        BMI: formValues.bmi,
+        DiabetesPedigreeFunction: formValues.diabetesPedigreeFunction,
+        Age: formValues.age,
+      };
 
-      if (!response.ok) {
-        throw new Error("Failed to get prediction");
-      }
-
-      const data = await response.json();
+      // Call the updated predictionApi
+      const response = await predictionApi.predictDiabetes(predictionData);
+      
       setResult({
-        outcome: data.outcome,
-        probability: data.probability * 100,
+        message: response.prediction,
+        probability: response.probability * 100, // Convert probability to percentage
       });
 
-      // For testing without backend
-      // Comment this out when you have a real backend
-      /* setTimeout(() => {
-        setResult({
-          outcome: Math.random() > 0.5,
-          probability: Math.random() * 100,
-        });
-        setLoading(false);
-      }, 1500); */
+      toast({
+        title: "Prediction completed",
+        description: "Your diabetes risk assessment is ready.",
+      });
     } catch (error) {
       console.error("Prediction error:", error);
       toast({
@@ -272,9 +267,9 @@ const Predictions = () => {
                   <div className="space-y-4">
                     <div className="flex flex-col items-center justify-center p-6">
                       <div className={`text-2xl font-bold ${
-                        result.outcome ? "text-glucose-high" : "text-glucose-normal"
+                        result.message ? "text-glucose-high" : "text-glucose-normal"
                       }`}>
-                        {result.outcome ? "Higher Risk" : "Lower Risk"}
+                        {result.message ? "Higher Risk" : "Lower Risk"}
                       </div>
                       <div className="text-4xl font-bold mt-2">{result.probability.toFixed(1)}%</div>
                       <p className="text-sm text-muted-foreground text-center mt-2">
@@ -286,7 +281,7 @@ const Predictions = () => {
 
                     <div className="space-y-2 text-sm">
                       <p className="font-medium">What does this mean?</p>
-                      {result.outcome ? (
+                      {result.message ? (
                         <p>
                           Your parameters indicate a higher risk of diabetes. This is not a diagnosis,
                           but we recommend consulting with a healthcare provider for proper evaluation.
