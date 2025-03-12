@@ -29,7 +29,7 @@ with open(scaler_path, 'rb') as f:
     scaler = pkl.load(f)
 
 # Load the trained neural network model
-model_path = os.path.join(script_dir, 'neural_network.keras')
+model_path = os.path.join(script_dir, 'best_model.keras')
 loaded_model = tf.keras.models.load_model(model_path)
 
 # Define input data schema using Pydantic
