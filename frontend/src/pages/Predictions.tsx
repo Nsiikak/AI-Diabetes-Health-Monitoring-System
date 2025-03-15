@@ -263,46 +263,47 @@ const Predictions = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                {result ? (
-                  <div className="space-y-4">
-                    <div className="flex flex-col items-center justify-center p-6">
-                      <div className={`text-2xl font-bold ${
-                        result.message ? "text-glucose-high" : "text-glucose-normal"
-                      }`}>
-                        {result.message ? "Higher Risk" : "Lower Risk"}
-                      </div>
-                      <div className="text-4xl font-bold mt-2">{result.probability.toFixed(1)}%</div>
-                      <p className="text-sm text-muted-foreground text-center mt-2">
-                        Probability of diabetes based on your parameters
-                      </p>
-                    </div>
+  {result ? (
+    <div className="space-y-4">
+      <div className="flex flex-col items-center justify-center p-6">
+        <div className={`text-2xl font-bold ${
+          result.probability > 50 ? "text-glucose-high" : "text-glucose-normal"
+        }`}>
+          {result.probability > 50 ? "High Risk" : "Low Risk"}
+        </div>
+        <div className="text-4xl font-bold mt-2">{result.probability.toFixed(1)}%</div>
+        <p className="text-sm text-muted-foreground text-center mt-2">
+          Probability of diabetes based on your parameters
+        </p>
+      </div>
 
-                    <Separator />
+      <Separator />
 
-                    <div className="space-y-2 text-sm">
-                      <p className="font-medium">What does this mean?</p>
-                      {result.message ? (
-                        <p>
-                          Your parameters indicate a higher risk of diabetes. This is not a diagnosis,
-                          but we recommend consulting with a healthcare provider for proper evaluation.
-                        </p>
-                      ) : (
-                        <p>
-                          Your parameters indicate a lower risk of diabetes. Continue maintaining a
-                          healthy lifestyle and regular check-ups with your healthcare provider.
-                        </p>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center p-6 h-64">
-                    <Database className="h-12 w-12 text-muted-foreground mb-4 opacity-50" />
-                    <p className="text-muted-foreground text-center">
-                      Enter your health parameters and click "Get Prediction" to see your results.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
+      <div className="space-y-2 text-sm">
+        <p className="font-medium">What does this mean?</p>
+        {result.probability > 50 ? (
+          <p>
+            Your parameters indicate a higher risk of diabetes. This is not a diagnosis,
+            but we recommend consulting with a healthcare provider for proper evaluation.
+          </p>
+        ) : (
+          <p>
+            Your parameters indicate a lower risk of diabetes. Continue maintaining a
+            healthy lifestyle and regular check-ups with your healthcare provider.
+          </p>
+        )}
+      </div>
+    </div>
+  ) : (
+    <div className="flex flex-col items-center justify-center p-6 h-64">
+      <Database className="h-12 w-12 text-muted-foreground mb-4 opacity-50" />
+      <p className="text-muted-foreground text-center">
+        Enter your health parameters and click "Get Prediction" to see your results.
+      </p>
+    </div>
+  )}
+</CardContent>
+
             </Card>
           </div>
         </div>
