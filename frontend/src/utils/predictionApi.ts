@@ -45,7 +45,7 @@ export const predictionApi = {
     return response.json();
   },
 
-  // Get user's prediction history (if your backend supports this)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getPredictionHistory: async (token: string): Promise<any[]> => {
     const response = await fetch(`${API_URL}/predictions/history`, {
       method: "GET",
