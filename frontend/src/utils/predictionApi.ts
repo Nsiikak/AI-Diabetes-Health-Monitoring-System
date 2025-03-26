@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000"; // Updated to match FastAPI server port
+const API_URL = "http://localhost:8001"; // Updated to match FastAPI server port
 
 export interface PredictionData {
   Pregnancies: number;

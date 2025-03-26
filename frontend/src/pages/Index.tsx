@@ -15,7 +15,7 @@ const Index = () => {
       <PageTransition>
         <div className="space-y-8">
           <div>
-            <h1 className="heading-1">Hello, John</h1>
+            <h1 className="heading-1">Hello, Nsikak-Abasi</h1>
             <p className="text-muted-foreground mt-1">
               Here's an overview of your health today
             </p>

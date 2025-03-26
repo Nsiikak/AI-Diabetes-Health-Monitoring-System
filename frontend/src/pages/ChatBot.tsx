@@ -46,18 +46,75 @@ const ChatBot = () => {
     let response = "";
     
     // Simple response logic based on keywords
-    if (userMessage.toLowerCase().includes("blood sugar") || userMessage.toLowerCase().includes("glucose")) {
-      response = "Monitoring your blood glucose levels regularly is essential for diabetes management. The target range is typically between 70-130 mg/dL before meals and less than 180 mg/dL after meals, but your doctor may set personalized targets for you.";
-    } else if (userMessage.toLowerCase().includes("diet") || userMessage.toLowerCase().includes("food") || userMessage.toLowerCase().includes("eat")) {
-      response = "A balanced diet is crucial for diabetes management. Focus on foods with low glycemic index, plenty of vegetables, lean proteins, and whole grains. Limit refined carbs, sugary foods, and processed items. Consider working with a dietitian to create a meal plan.";
-    } else if (userMessage.toLowerCase().includes("exercise") || userMessage.toLowerCase().includes("activity")) {
-      response = "Regular physical activity helps improve insulin sensitivity. Aim for at least 150 minutes of moderate exercise per week. Always check your blood sugar before and after exercise, and carry a fast-acting carbohydrate with you in case of hypoglycemia.";
-    } else if (userMessage.toLowerCase().includes("medication") || userMessage.toLowerCase().includes("insulin")) {
-      response = "Taking your medications as prescribed is vital. Never adjust your insulin or medication doses without consulting your healthcare provider first. If you're experiencing side effects, discuss them with your doctor instead of stopping the medication.";
-    } else if (userMessage.toLowerCase().includes("hello") || userMessage.toLowerCase().includes("hi")) {
-      response = "Hello there! I'm here to provide general information about diabetes management. How can I assist you today?";
+    if (
+      userMessage.toLowerCase().includes("blood sugar") ||
+      userMessage.toLowerCase().includes("glucose") ||
+      userMessage.toLowerCase().includes("sugar levels") ||
+      userMessage.toLowerCase().includes("monitor sugar")
+    ) {
+      response = "Monitoring your blood glucose levels consistently is essential for effective diabetes management. The recommended range is generally 70-130 mg/dL before meals and less than 180 mg/dL after meals. However, your healthcare provider may establish personalized targets based on your specific needs.";
+    } else if (
+      userMessage.toLowerCase().includes("diet") ||
+      userMessage.toLowerCase().includes("food") ||
+      userMessage.toLowerCase().includes("meal plan") ||
+      userMessage.toLowerCase().includes("nutrition") ||
+      userMessage.toLowerCase().includes("what to eat")
+    ) {
+      response = "A well-balanced diet plays a key role in managing diabetes. Emphasize foods with a low glycemic index, including non-starchy vegetables, lean proteins, and whole grains. Minimize consumption of refined sugars, sugary drinks, and processed foods. Consider consulting with a registered dietitian for a personalized nutrition plan.";
+    } else if (
+      userMessage.toLowerCase().includes("exercise") ||
+      userMessage.toLowerCase().includes("physical activity") ||
+      userMessage.toLowerCase().includes("workout") ||
+      userMessage.toLowerCase().includes("fitness") ||
+      userMessage.toLowerCase().includes("stay active")
+    ) {
+      response = "Regular physical activity is essential for managing diabetes and improving overall health. Aim for at least 150 minutes of moderate exercise per week, such as walking, swimming, or cycling. Always monitor your blood sugar levels before and after exercise, and carry a fast-acting carbohydrate in case of low blood sugar.";
+    } else if (
+      userMessage.toLowerCase().includes("medication") ||
+      userMessage.toLowerCase().includes("insulin") ||
+      userMessage.toLowerCase().includes("prescription") ||
+      userMessage.toLowerCase().includes("medicine") ||
+      userMessage.toLowerCase().includes("doses")
+    ) {
+      response = "Taking medications as prescribed is critical to managing your condition effectively. Always follow your healthcare provider's instructions regarding dosages and schedules. If you experience side effects or have concerns about your medications, consult your doctor rather than making changes on your own.";
+    } else if (
+      userMessage.toLowerCase().includes("symptoms") ||
+      userMessage.toLowerCase().includes("feeling unwell") ||
+      userMessage.toLowerCase().includes("signs of diabetes") ||
+      userMessage.toLowerCase().includes("tired") ||
+      userMessage.toLowerCase().includes("frequent urination")
+    ) {
+      response = "Symptoms such as fatigue, excessive thirst, frequent urination, or blurry vision could indicate blood sugar fluctuations. If you're experiencing these symptoms, please monitor your blood sugar and consult a healthcare provider promptly.";
+    } else if (
+      userMessage.toLowerCase().includes("hello") ||
+      userMessage.toLowerCase().includes("hi") ||
+      userMessage.toLowerCase().includes("hey") ||
+      userMessage.toLowerCase().includes("greetings")
+    ) {
+      response = "Hello! I'm here to support you with general information about diabetes management. Let me know how I can assist you today.";
+    } else if (
+      userMessage.toLowerCase().includes("complications") ||
+      userMessage.toLowerCase().includes("risks") ||
+      userMessage.toLowerCase().includes("long-term effects")
+    ) {
+      response = "Managing diabetes effectively helps reduce the risk of complications like neuropathy, kidney disease, and heart problems. Regular checkups, healthy lifestyle choices, and medication adherence are key to prevention.";
+    } else if (
+      userMessage.toLowerCase().includes("stress") ||
+      userMessage.toLowerCase().includes("mental health") ||
+      userMessage.toLowerCase().includes("emotions") ||
+      userMessage.toLowerCase().includes("anxiety")
+    ) {
+      response = "Stress and mental health can significantly impact blood sugar levels. Engage in stress-reducing activities such as meditation, yoga, or deep breathing, and consider reaching out to a mental health professional if needed.";
+    } else if (
+      userMessage.toLowerCase().includes("emergency") ||
+      userMessage.toLowerCase().includes("low sugar") ||
+      userMessage.toLowerCase().includes("hypoglycemia") ||
+      userMessage.toLowerCase().includes("high sugar") ||
+      userMessage.toLowerCase().includes("hyperglycemia")
+    ) {
+      response = "For hypoglycemia, consume a fast-acting carbohydrate like juice or glucose tablets and recheck your levels after 15 minutes. For hyperglycemia, stay hydrated and follow your care plan. Contact your healthcare provider if your levels remain unstable or you feel unwell.";
     } else {
-      response = "Thank you for your question. For specific advice tailored to your condition, please consult with your healthcare provider. Is there something else I can help you with regarding diabetes management?";
+      response = "Thank you for your message! For personalized advice or urgent concerns, please consult a healthcare professional. Is there anything specific you'd like assistance with?";
     }
     
     setIsTyping(false);
