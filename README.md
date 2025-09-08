@@ -145,7 +145,7 @@ Get the project up and running locally in just a few steps:
 
 2. The frontend should now be running on `http://localhost:5000` 🚀.
 
-### Machine Learning Models 🧠
+### Machine Learning Models 
 
 1. **Run the ML models**:
 
